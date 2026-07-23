@@ -1,0 +1,101 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "./promt.md"
+  ],
+  "permission": {
+    "grep": "deny"
+  },
+  "plugin": [
+    "opencode-yolo-toggle"
+  ],
+  "provider": {
+    "cli-proxy-api": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Cli Proxy API (Gemini)",
+      "options": {
+        "baseURL": "http://127.0.0.1:8317/v1",
+        "apiKey": "sk-8fK9xL2mQ7vP4wN1jR6tY3uI5oA8sD0f",
+        "chunkTimeout": 30000,
+        "simulateStreaming": true
+      },
+      "models": {
+        "gemini-3.6-flash-high": {
+          "name": "Gemini 3.6 Flash High",
+          "variants": {
+            "minimal": {
+              "thinkingLevel": "minimal"
+            },
+            "low": {
+              "thinkingLevel": "low"
+            },
+            "medium": {
+              "thinkingLevel": "medium"
+            },
+            "high": {
+              "thinkingLevel": "high"
+            }
+          }
+        },
+        "gemini-3.5-flash-low": {
+          "name": "Gemini 3.5 Flash Low",
+          "variants": {
+            "minimal": {
+              "thinkingLevel": "minimal"
+            },
+            "low": {
+              "thinkingLevel": "low"
+            },
+            "medium": {
+              "thinkingLevel": "medium"
+            },
+            "high": {
+              "thinkingLevel": "high"
+            }
+          }
+        },
+        "gemini-3.1-pro": {
+          "name": "Gemini 3.1 Pro",
+          "variants": {
+            "low": {
+              "thinkingLevel": "low"
+            },
+            "high": {
+              "thinkingLevel": "high"
+            }
+          }
+        },
+        "gemini-3-flash": {
+          "name": "Gemini 3 Flash",
+          "variants": {
+            "low": {
+              "thinkingLevel": "low"
+            },
+            "high": {
+              "thinkingLevel": "high"
+            },
+            "max": {
+              "thinkingLevel": "max"
+            }
+          }
+        },
+        "gemini-3.1-flash-lite": {
+          "name": "Gemini 3.1 Flash Lite",
+          "variants": {
+            "minimal": {
+              "thinkingLevel": "minimal"
+            },
+            "low": {
+              "thinkingLevel": "low"
+            },
+            "high": {
+              "thinkingLevel": "high"
+            }
+          }
+        }
+      }
+    }
+  },
+  "model": "cli-proxy-api/gemini-3.6-flash-high:medium",
+  "small_model": "cli-proxy-api/gemini-3.6-flash-high:low"
+}

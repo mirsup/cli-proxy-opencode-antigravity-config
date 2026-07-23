@@ -1,0 +1,191 @@
+# Адрес и порт локального сервера прокси
+host: ''
+port: 8317
+
+tls:
+  enable: false
+  cert: ''
+  key: ''
+
+# Настройки панели управления (доступна по адресу: http://localhost:8317/management.html)
+remote-management:
+  # allow-remote: false — ограничить доступ к веб-панели только с localhost (127.0.0.1)
+  allow-remote: false
+  # secret-key: секретный пароль для входа в панель управления
+  secret-key: 'root'
+  disable-control-panel: false
+  panel-github-repository: https://github.com/router-for-me/Cli-Proxy-API-Management-Center
+
+# Директория с файлами авторизации (токенами)
+auth-dir: ~/.cli-proxy-api
+
+# API-ключи прокси для подключения сторонних клиентов (OpenCode, Cursor и т.д.)
+api-keys:
+  - sk-8fK9xL2mQ7vP4wN1jR6tY3uI5oA8sD0f
+  - sk-3bN7vX1mK9qL5wP8jR2tY4uI6oA9sD1g
+  - sk-5xL2mQ8vP4wN1jR7tY3uI5oA9sD0f1kR
+  - sk-9qL5wP2jR8tY4uI6oA0sD1g3bN7vX9mK
+
+# debug: true — включает подробное логирование запросов и ошибок в консоль
+debug: true
+
+# commercial-mode: true — оптимизирует работу прокси и снижает потребление ОЗУ при частых запросах
+commercial-mode: true
+
+# Таймаут ожидания первого токена ответа (TTFT) по умолчанию (в секундах)
+ttft-timeout: 15
+
+# Индивидуальные таймауты TTFT для моделей (в секундах)
+ttft-timeout-models:
+  gemini-3.1-pro: 25
+  gemini-3.5-flash-low: 20
+  gemini-3-flash: 20
+  gemini-3.1-flash-lite: 20
+  gemini-3.6-flash-high: 20
+
+# logging-to-file: true — запись всех логов работы прокси в вращающиеся файлы вместо консоли
+logging-to-file: true
+# logs-max-total-size-mb: максимальный размер лог-файлов в МБ (0 — без ограничений)
+logs-max-total-size-mb: 100
+
+error-logs-max-files: 10
+usage-statistics-enabled: false
+redis-usage-queue-retention-seconds: 60
+proxy-url: ''
+force-model-prefix: false
+passthrough-headers: false
+
+# request-retry: 3 — количество автоматических повторных попыток при ошибках сервера (403, 408, 500, 502, 503, 504)
+request-retry: 3
+max-retry-credentials: 0
+
+# max-retry-interval: 30 — максимальное время ожидания (в секундах) перед повторной попыткой
+max-retry-interval: 30
+
+# disable-cooling: false — временный уход аккаунта/модели "на охлаждение" (cooldown) при ошибках, чтобы не спамить заблокированный аккаунт
+disable-cooling: false
+disable-image-generation: false
+
+# Поведение при превышении лимитов (квот)
+quota-exceeded:
+  # switch-project: true — автоматическое переключение на другой Google/Antigravity проект при исчерпании квоты
+  switch-project: true
+  antigravity-credits: true
+
+# Стратегия маршрутизации между аккаунтами
+routing:
+  # strategy: fill-first — выжимает максимум из одного активного аккаунта до исчерпания лимитов, затем переходит к следующему
+  strategy: fill-first
+  session-affinity: false
+  session-affinity-ttl: 1h
+
+ws-auth: true
+nonstream-keepalive-interval: 0
+streaming:
+  bootstrap-retries: 2
+
+# Маппинг и алиасы моделей Gemini (поддержка формата уровня мышления из OpenCode)
+oauth-model-alias:
+  antigravity:
+    - name: gemini-3.1-pro-low
+      alias: gemini-3.1-pro
+    - name: gemini-3.5-flash-low(minimal)
+      alias: gemini-3.5-flash-low:minimal
+    - name: gemini-3.5-flash-low(low)
+      alias: gemini-3.5-flash-low:low
+    - name: gemini-3.5-flash-low(medium)
+      alias: gemini-3.5-flash-low:medium
+    - name: gemini-3.5-flash-low(high)
+      alias: gemini-3.5-flash-low:high
+    - name: gemini-3-flash(low)
+      alias: gemini-3-flash:low
+    - name: gemini-3-flash(high)
+      alias: gemini-3-flash:high
+    - name: gemini-3-flash(max)
+      alias: gemini-3-flash:max
+    - name: gemini-3.1-pro-low(low)
+      alias: gemini-3.1-pro-low:low
+    - name: gemini-3.1-pro-low(high)
+      alias: gemini-3.1-pro-low:high
+    - name: gemini-3.1-pro-low(low)
+      alias: gemini-3.1-pro:low
+    - name: gemini-3.1-pro-low(high)
+      alias: gemini-3.1-pro:high
+    - name: gemini-3.1-flash-lite(minimal)
+      alias: gemini-3.1-flash-lite:minimal
+    - name: gemini-3.1-flash-lite(low)
+      alias: gemini-3.1-flash-lite:low
+    - name: gemini-3.1-flash-lite(high)
+      alias: gemini-3.1-flash-lite:high
+    - name: gemini-3.6-flash-high(minimal)
+      alias: gemini-3.6-flash-high:minimal
+    - name: gemini-3.6-flash-high(low)
+      alias: gemini-3.6-flash-high:low
+    - name: gemini-3.6-flash-high(medium)
+      alias: gemini-3.6-flash-high:medium
+    - name: gemini-3.6-flash-high(high)
+      alias: gemini-3.6-flash-high:high
+
+# Мост совместимости с OpenAI API (клиенты посылают запросы на /v1/chat/completions)
+openai-compatibility:
+  - name: cli-proxy-api-gemini-bridge
+    base-url: http://127.0.0.1:8317/v1
+    api-key-entries:
+      - api-key: sk-8fK9xL2mQ7vP4wN1jR6tY3uI5oA8sD0f
+        proxy-url: direct
+    models:
+      # force-mapping: true — заставляет прокси подменять имя модели в ответе обратно на запрошенный клиентом alias
+      - name: gemini-3.5-flash-low(minimal)
+        alias: gemini-3.5-flash-low:minimal
+        force-mapping: true
+      - name: gemini-3.5-flash-low(low)
+        alias: gemini-3.5-flash-low:low
+        force-mapping: true
+      - name: gemini-3.5-flash-low(medium)
+        alias: gemini-3.5-flash-low:medium
+        force-mapping: true
+      - name: gemini-3.5-flash-low(high)
+        alias: gemini-3.5-flash-low:high
+        force-mapping: true
+      - name: gemini-3-flash(low)
+        alias: gemini-3-flash:low
+        force-mapping: true
+      - name: gemini-3-flash(high)
+        alias: gemini-3-flash:high
+        force-mapping: true
+      - name: gemini-3-flash(max)
+        alias: gemini-3-flash:max
+        force-mapping: true
+      - name: gemini-3.1-pro-low(low)
+        alias: gemini-3.1-pro-low:low
+        force-mapping: true
+      - name: gemini-3.1-pro-low(high)
+        alias: gemini-3.1-pro-low:high
+        force-mapping: true
+      - name: gemini-3.1-pro-low(low)
+        alias: gemini-3.1-pro:low
+        force-mapping: true
+      - name: gemini-3.1-pro-low(high)
+        alias: gemini-3.1-pro:high
+        force-mapping: true
+      - name: gemini-3.1-flash-lite(minimal)
+        alias: gemini-3.1-flash-lite:minimal
+        force-mapping: true
+      - name: gemini-3.1-flash-lite(low)
+        alias: gemini-3.1-flash-lite:low
+        force-mapping: true
+      - name: gemini-3.1-flash-lite(high)
+        alias: gemini-3.1-flash-lite:high
+        force-mapping: true
+      - name: gemini-3.6-flash-high(minimal)
+        alias: gemini-3.6-flash-high:minimal
+        force-mapping: true
+      - name: gemini-3.6-flash-high(low)
+        alias: gemini-3.6-flash-high:low
+        force-mapping: true
+      - name: gemini-3.6-flash-high(medium)
+        alias: gemini-3.6-flash-high:medium
+        force-mapping: true
+      - name: gemini-3.6-flash-high(high)
+        alias: gemini-3.6-flash-high:high
+        force-mapping: true
