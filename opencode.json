@@ -6,9 +6,6 @@
   "permission": {
     "grep": "deny"
   },
-  "plugin": [
-    "opencode-yolo-toggle"
-  ],
   "provider": {
     "cli-proxy-api": {
       "npm": "@ai-sdk/openai-compatible",
