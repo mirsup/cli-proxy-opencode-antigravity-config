@@ -125,6 +125,37 @@ oauth-model-alias:
       alias: gemini-3.6-flash-high:medium
     - name: gemini-3.6-flash-high(high)
       alias: gemini-3.6-flash-high:high
+  codex:
+    - name: gpt-5.6-terra(minimal)
+      alias: gpt-5.6-terra:minimal
+    - name: gpt-5.6-terra(low)
+      alias: gpt-5.6-terra:low
+    - name: gpt-5.6-terra(medium)
+      alias: gpt-5.6-terra:medium
+    - name: gpt-5.6-terra(high)
+      alias: gpt-5.6-terra:high
+    - name: gpt-5.6-terra(xhigh)
+      alias: gpt-5.6-terra:xhigh
+    - name: gpt-5.6-sol(minimal)
+      alias: gpt-5.6-sol:minimal
+    - name: gpt-5.6-sol(low)
+      alias: gpt-5.6-sol:low
+    - name: gpt-5.6-sol(medium)
+      alias: gpt-5.6-sol:medium
+    - name: gpt-5.6-sol(high)
+      alias: gpt-5.6-sol:high
+    - name: gpt-5.6-sol(xhigh)
+      alias: gpt-5.6-sol:xhigh
+    - name: gpt-5.6-luna(minimal)
+      alias: gpt-5.6-luna:minimal
+    - name: gpt-5.6-luna(low)
+      alias: gpt-5.6-luna:low
+    - name: gpt-5.6-luna(medium)
+      alias: gpt-5.6-luna:medium
+    - name: gpt-5.6-luna(high)
+      alias: gpt-5.6-luna:high
+    - name: gpt-5.6-luna(xhigh)
+      alias: gpt-5.6-luna:xhigh
 
 # Мост совместимости с OpenAI API (клиенты посылают запросы на /v1/chat/completions)
 openai-compatibility:
@@ -188,4 +219,49 @@ openai-compatibility:
         force-mapping: true
       - name: gemini-3.6-flash-high(high)
         alias: gemini-3.6-flash-high:high
+        force-mapping: true
+      - name: gpt-5.6-terra(minimal)
+        alias: gpt-5.6-terra:minimal
+        force-mapping: true
+      - name: gpt-5.6-terra(low)
+        alias: gpt-5.6-terra:low
+        force-mapping: true
+      - name: gpt-5.6-terra(medium)
+        alias: gpt-5.6-terra:medium
+        force-mapping: true
+      - name: gpt-5.6-terra(high)
+        alias: gpt-5.6-terra:high
+        force-mapping: true
+      - name: gpt-5.6-terra(xhigh)
+        alias: gpt-5.6-terra:xhigh
+        force-mapping: true
+      - name: gpt-5.6-sol(minimal)
+        alias: gpt-5.6-sol:minimal
+        force-mapping: true
+      - name: gpt-5.6-sol(low)
+        alias: gpt-5.6-sol:low
+        force-mapping: true
+      - name: gpt-5.6-sol(medium)
+        alias: gpt-5.6-sol:medium
+        force-mapping: true
+      - name: gpt-5.6-sol(high)
+        alias: gpt-5.6-sol:high
+        force-mapping: true
+      - name: gpt-5.6-sol(xhigh)
+        alias: gpt-5.6-sol:xhigh
+        force-mapping: true
+      - name: gpt-5.6-luna(minimal)
+        alias: gpt-5.6-luna:minimal
+        force-mapping: true
+      - name: gpt-5.6-luna(low)
+        alias: gpt-5.6-luna:low
+        force-mapping: true
+      - name: gpt-5.6-luna(medium)
+        alias: gpt-5.6-luna:medium
+        force-mapping: true
+      - name: gpt-5.6-luna(high)
+        alias: gpt-5.6-luna:high
+        force-mapping: true
+      - name: gpt-5.6-luna(xhigh)
+        alias: gpt-5.6-luna:xhigh
         force-mapping: true
