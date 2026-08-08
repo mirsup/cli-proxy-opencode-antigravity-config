@@ -160,7 +160,7 @@ oauth-model-alias:
 # Мост совместимости с OpenAI API (клиенты посылают запросы на /v1/chat/completions)
 openai-compatibility:
   - name: cli-proxy-api-gemini-bridge
-    base-url: http://127.0.0.1:8317/v1
+    base-url: http://localhost:8317/v1
     api-key-entries:
       - api-key: sk-8fK9xL2mQ7vP4wN1jR6tY3uI5oA8sD0f
         proxy-url: direct

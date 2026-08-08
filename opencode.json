@@ -11,7 +11,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "Cli Proxy API (Gemini)",
       "options": {
-        "baseURL": "http://127.0.0.1:8317/v1",
+        "baseURL": "http://localhost:8317/v1",
         "apiKey": "sk-8fK9xL2mQ7vP4wN1jR6tY3uI5oA8sD0f",
         "chunkTimeout": 30000,
         "simulateStreaming": true
