@@ -4,7 +4,16 @@
     "./promt.md"
   ],
   "permission": {
-    "grep": "deny"
+    "grep": "deny",
+    "webfetch": "deny",
+    "websearch": "deny"
+  },
+  "mcp": {
+    "gemini-tools": {
+      "type": "local",
+      "command": ["python3", "./gemini_mcp.py"],
+      "enabled": true
+    }
   },
   "provider": {
     "cli-proxy-api": {
@@ -79,6 +88,10 @@
         },
         "gemini-3.6-flash-high": {
           "name": "Gemini 3.6 Flash High",
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
           "variants": {
             "minimal": {
               "thinkingLevel": "minimal"
@@ -96,6 +109,10 @@
         },
         "gemini-3.5-flash-low": {
           "name": "Gemini 3.5 Flash Low",
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
           "variants": {
             "minimal": {
               "thinkingLevel": "minimal"
@@ -113,6 +130,10 @@
         },
         "gemini-3.1-pro": {
           "name": "Gemini 3.1 Pro",
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
           "variants": {
             "low": {
               "thinkingLevel": "low"
@@ -124,6 +145,10 @@
         },
         "gemini-3-flash": {
           "name": "Gemini 3 Flash",
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
           "variants": {
             "low": {
               "thinkingLevel": "low"
@@ -138,12 +163,19 @@
         },
         "gemini-3.1-flash-lite": {
           "name": "Gemini 3.1 Flash Lite",
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
           "variants": {
             "minimal": {
               "thinkingLevel": "minimal"
             },
             "low": {
               "thinkingLevel": "low"
+            },
+            "medium": {
+              "thinkingLevel": "medium"
             },
             "high": {
               "thinkingLevel": "high"
